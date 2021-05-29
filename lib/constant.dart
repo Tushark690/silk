@@ -1,0 +1,3 @@
+const String firmName="Chahat Jewellers";
+
+const String key="AAAA5urRsrU:APA91bF-Pg-emgv3Exow6AwY5K45wBRhEkTXwrg_GUqd_PEzF8fh47OtGh8w8pTTGrvVveK2MuQnzxje6DEYOFzbSv52gY_jI2xL1R6E0dec5AfzXOs8pVXZIdbRm4zyiO74AvMTCYm4";

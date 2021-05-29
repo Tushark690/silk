@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "991782089397",
+    "project_id": "chahat-jewel",
+    "storage_bucket": "chahat-jewel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991782089397:android:01551ac8cad6fe13e144fc",
+        "android_client_info": {
+          "package_name": "com.example.chahatjewel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991782089397-hddrh6os0d4o5t1nvihf7sg0gisgag67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvrW_sbWL5LYQCmmsFv4b8fo_3VCp7fTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991782089397-hddrh6os0d4o5t1nvihf7sg0gisgag67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991782089397:android:7fe124686b3ff573e144fc",
+        "android_client_info": {
+          "package_name": "com.mahaadev.jewellery_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991782089397-hddrh6os0d4o5t1nvihf7sg0gisgag67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvrW_sbWL5LYQCmmsFv4b8fo_3VCp7fTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991782089397-hddrh6os0d4o5t1nvihf7sg0gisgag67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
