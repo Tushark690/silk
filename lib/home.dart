@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:highlighter_coachmark/highlighter_coachmark.dart';
 import 'package:jewellery_admin/add-rates.dart';
 import 'package:jewellery_admin/add_gallery.dart';
+import 'package:jewellery_admin/all-chats.dart';
 import 'package:jewellery_admin/all-registration.dart';
+import 'package:jewellery_admin/category.dart';
 import 'package:jewellery_admin/contact-us.dart';
 import 'package:jewellery_admin/custom-notification.dart';
 import 'package:jewellery_admin/message1.dart';
@@ -330,6 +332,33 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   Expanded(child:  MaterialButton(
+                    height: 80.0,
+                    minWidth: 70.0,
+                    color: Colors.blueGrey,
+                    textColor: Colors.white,
+                    shape: StadiumBorder(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.photo,size: 30,color: Colors.white,),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        new Text("Add Category",style: TextStyle(fontSize: 30))
+                      ],
+                    ),
+                    onPressed: () => {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => Category()))
+                    },
+                    splashColor: Colors.orange,
+                  ))
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                  Expanded(child:  MaterialButton(
                     key: _galleryKey,
                     height: 80.0,
                     minWidth: 70.0,
@@ -435,6 +464,33 @@ class _HomePageState extends State<HomePage> {
                   ))
                 ],
               ),
+              // SizedBox(height: 20,),
+              // Row(
+              //   children: [
+              //     Expanded(child:  MaterialButton(
+              //       height: 80.0,
+              //       minWidth: 70.0,
+              //       color: Colors.lime,
+              //       textColor: Colors.white,
+              //       shape: StadiumBorder(),
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           Icon(Icons.chat,size: 30,color: Colors.white,),
+              //           SizedBox(
+              //             width: 5,
+              //           ),
+              //           new Text("Chats",style: TextStyle(fontSize: 30))
+              //         ],
+              //       ),
+              //       onPressed: () => {
+              //         Navigator.of(context)
+              //             .push(MaterialPageRoute(builder: (context) => AllChats()))
+              //       },
+              //       splashColor: Colors.orange,
+              //     ))
+              //   ],
+              // ),
             ],
           ),
         ),

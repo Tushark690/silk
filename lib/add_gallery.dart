@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:path/path.dart' as Path;
@@ -17,10 +18,14 @@ class _AddGalleryState extends State<AddGallery> {
   bool uploading = false;
   double val = 0;
   CollectionReference imgRef;
+  CollectionReference catRef;
   firebase_storage.Reference ref;
-
   List<File> _image = [];
   final picker = ImagePicker();
+  List<DropdownMenuItem> _list = [];
+  String _selectedCategory="";
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +55,12 @@ class _AddGalleryState extends State<AddGallery> {
             SingleChildScrollView(
               child: Column(
                 children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: DropdownButtonFormField(items: _list,value: _selectedCategory,onChanged: (value){setState(() {
+                      _selectedCategory=value;
+                    });},),
+                  ),
                   Container(
                     padding: EdgeInsets.all(4),
                     child: GridView.builder(
@@ -211,27 +222,43 @@ class _AddGalleryState extends State<AddGallery> {
   }
 
   Future uploadFile() async {
-    int i = 1;
+    if(_selectedCategory.isEmpty){
+      Fluttertoast.showToast(msg: "Please select category");
+    }else{
+      int i = 1;
 
-    for (var img in _image) {
-      setState(() {
-        val = i / _image.length;
-      });
-      ref = firebase_storage.FirebaseStorage.instance
-          .ref()
-          .child('images/${Path.basename(img.path)}');
-      await ref.putFile(img).whenComplete(() async {
-        await ref.getDownloadURL().then((value) {
-          imgRef.add({'url': value});
-          i++;
+      for (var img in _image) {
+        setState(() {
+          val = i / _image.length;
         });
-      });
+        ref = firebase_storage.FirebaseStorage.instance
+            .ref()
+            .child('images/${Path.basename(img.path)}');
+        await ref.putFile(img).whenComplete(() async {
+          await ref.getDownloadURL().then((value) {
+            imgRef.add({'url': value,'category':_selectedCategory});
+            i++;
+          });
+        });
+      }
     }
   }
 
   @override
   void initState() {
     super.initState();
+
+    _list.add(DropdownMenuItem(child: Text("Please Select"), value: "",));
     imgRef = FirebaseFirestore.instance.collection('gallery');
+    catRef = FirebaseFirestore.instance.collection('category');
+
+    catRef.get().then((QuerySnapshot snapshot) {
+      snapshot.docs.forEach((element) {
+        setState(() {
+          print(element.get("categoryName"));
+          _list.add(DropdownMenuItem(child: Text(element.get("categoryName")),value: element.id,));
+        });
+      });
+    });
   }
 }

@@ -58,10 +58,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       end: Alignment.bottomCenter)),
             ),
             // set your logo here
-            Container(
-                margin: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height / 20, 0, 0),
-                alignment: Alignment.topCenter,
-                child: Image.asset('assets/images/logo_dark.png', height: 120)),
+            // Container(
+            //     margin: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height / 20, 0, 0),
+            //     alignment: Alignment.topCenter,
+            //     child: Image.asset('assets/images/logo_dark.png', height: 120)),
             ListView(
               children: <Widget>[
                 // create form login
